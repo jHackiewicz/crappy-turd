@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwby3ss2u8c0n"]
+
+[ext_resource type="PackedScene" uid="uid://ehhqk573a2w" path="res://player/player.tscn" id="1_pjrb6"]
+[ext_resource type="Script" uid="uid://kl4t17cuosh2" path="res://main/main.gd" id="1_xwkvk"]
+[ext_resource type="Texture2D" uid="uid://dsbetw0ugsrxi" path="res://assets/backgrounclouds.png" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://cp041l1vlfp3s" path="res://obstacle/obstacle.tscn" id="4_c651c"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_xwkvk")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_xwkvk")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("1_pjrb6")]
+position = Vector2(230, 364)
+
+[node name="Obstacle" parent="." instance=ExtResource("4_c651c")]
+position = Vector2(397, 473)
+
+[connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]

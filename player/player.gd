@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal on_game_started
 @onready var sprite = $Sprite2D
 @export var gravity: float = 1000
 @export var jump_force: float = -400
@@ -13,7 +14,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and should_process_input:
 		velocity.y = jump_force
 		rotation = deg_to_rad(-30)
-		
+		if not is_started:
+			is_started = true
+			on_game_started.emit()
+			
 	if not is_started:
 		return
 	#Apply gravity
