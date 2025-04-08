@@ -3,7 +3,7 @@ class_name Obstacle
 
 signal on_turd_crash
 
-@export var move_speed: float = 200
+@export var move_speed: float = 300
 
 func _process(delta: float) -> void:
 	position.x -= move_speed * delta

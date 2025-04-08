@@ -3,8 +3,8 @@ class_name Player
 
 signal on_game_started
 @onready var sprite = $Sprite2D
-@export var gravity: float = 1000
-@export var jump_force: float = -400
+@export var gravity: float = 1200
+@export var jump_force: float = -600
 @export var max_speed: float = 400
 @export var rotation_speed: float = 2
 
