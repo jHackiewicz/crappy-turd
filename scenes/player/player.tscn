@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ehhqk573a2w"]
 
-[ext_resource type="Script" uid="uid://nhs0jep0l010" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Script" uid="uid://nhs0jep0l010" path="res://scenes/player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bemkgwikcv6kg" path="res://assets/turds/turd green down.png" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://ca2mvsif7dnh6" path="res://assets/turds/turd green up.png" id="2_g1dw6"]
 

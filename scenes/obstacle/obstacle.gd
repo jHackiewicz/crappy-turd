@@ -1,5 +1,5 @@
 extends Node2D
-class_name Player
+class_name Obstacle
 
 signal on_turd_crash
 
