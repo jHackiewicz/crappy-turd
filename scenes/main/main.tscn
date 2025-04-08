@@ -27,3 +27,4 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_xwkvk")
 
 [connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
+[connection signal="on_obstacle_crash" from="Spawner" to="." method="_on_spawner_on_obstacle_crash"]

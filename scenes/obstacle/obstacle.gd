@@ -8,7 +8,9 @@ signal on_turd_crash
 func _process(delta: float) -> void:
 	position.x -= move_speed * delta
 
-
+func set_speed(value: float) -> void:
+	move_speed = value
+	
 func _on_top_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	on_turd_crash.emit()
