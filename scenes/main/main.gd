@@ -10,3 +10,4 @@ func _on_player_on_game_started() -> void:
 func _on_spawner_on_obstacle_crash() -> void:
 	player.stop_movement()
 	$ParallaxBackground.stop_scroll()
+	
