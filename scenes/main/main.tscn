@@ -1,22 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwby3ss2u8c0n"]
+[gd_scene load_steps=6 format=3 uid="uid://cwby3ss2u8c0n"]
 
 [ext_resource type="PackedScene" uid="uid://ehhqk573a2w" path="res://scenes/player/player.tscn" id="1_pjrb6"]
 [ext_resource type="Script" uid="uid://kl4t17cuosh2" path="res://scenes/main/main.gd" id="1_xwkvk"]
 [ext_resource type="Texture2D" uid="uid://dsbetw0ugsrxi" path="res://assets/backgrounclouds.png" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://blm4o2ffyi5pr" path="res://scenes/main/parallax_background.gd" id="4_6q06x"]
 [ext_resource type="PackedScene" uid="uid://bnfxro1cj17vv" path="res://scenes/spawner/spawner.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xwkvk")
 
-[node name="BG" type="Sprite2D" parent="."]
-position = Vector2(1, -2)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("2_xwkvk")
-centered = false
-
 [node name="Player" parent="." instance=ExtResource("1_pjrb6")]
 position = Vector2(230, 364)
 
 [node name="Spawner" parent="." instance=ExtResource("4_l3cfh")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("4_6q06x")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(795, 416)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xwkvk")
 
 [connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
