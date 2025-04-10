@@ -14,13 +14,13 @@ func set_speed(value: float) -> void:
 func _on_top_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	on_turd_crash.emit()
-	print("This works! Top Collision")
+	
 
 
 func _on_bottom_body_entered(body: Node2D) -> void:
 	if not body is Player: return
 	on_turd_crash.emit()
-	print("This works! Bottom Collision")
+	
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
