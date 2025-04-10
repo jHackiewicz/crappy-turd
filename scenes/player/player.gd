@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = min(velocity.y, max_speed)
 	# Check for jump input
 	
-	if not sprite.is_playing():
+	if should_process_input and not sprite.is_playing():
 		sprite.play("flying green turd")
 	#Move the player
 	move_and_slide()
@@ -40,6 +40,7 @@ func rotate_player(delta: float) -> void:
 	
 func stop_movement() -> void:
 		should_process_input = false
+		sprite.stop()
 		
 func stop_gravity() -> void:
 		gravity = 0
