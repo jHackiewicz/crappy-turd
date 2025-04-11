@@ -2,6 +2,7 @@ extends Node2D
 class_name Obstacle
 
 signal on_turd_crash
+signal player_scored
 
 @export var move_speed: float = 300
 
@@ -25,3 +26,7 @@ func _on_bottom_body_entered(body: Node2D) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free() 
+
+
+func _on_score_body_entered(body: Node2D) -> void:
+	player_scored.emit()

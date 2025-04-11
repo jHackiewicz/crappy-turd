@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwby3ss2u8c0n"]
+[gd_scene load_steps=8 format=3 uid="uid://cwby3ss2u8c0n"]
 
 [ext_resource type="PackedScene" uid="uid://ehhqk573a2w" path="res://scenes/player/player.tscn" id="1_pjrb6"]
 [ext_resource type="Script" uid="uid://kl4t17cuosh2" path="res://scenes/main/main.gd" id="1_xwkvk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://blm4o2ffyi5pr" path="res://scenes/main/parallax_background.gd" id="4_6q06x"]
 [ext_resource type="PackedScene" uid="uid://bnfxro1cj17vv" path="res://scenes/spawner/spawner.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://havsd181mlnm" path="res://scenes/ground/ground.tscn" id="6_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://6hoadr2yfyte" path="res://scenes/ui/ui.tscn" id="7_hujxm"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(4, -43)
@@ -31,6 +32,9 @@ texture = ExtResource("2_xwkvk")
 [node name="Ground" parent="." instance=ExtResource("6_ow5a4")]
 position = Vector2(-6, 864)
 
+[node name="UI" parent="." instance=ExtResource("7_hujxm")]
+
 [connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
 [connection signal="on_obstacle_crash" from="Spawner" to="." method="_on_spawner_on_obstacle_crash"]
+[connection signal="on_player_scored" from="Spawner" to="." method="_on_spawner_on_player_scored"]
 [connection signal="on_player_crashed" from="Ground" to="." method="_on_ground_on_player_crashed"]

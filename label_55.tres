@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ig4dd1la66wy"]
+
+[ext_resource type="FontFile" uid="uid://c1efh4rm8icxb" path="res://assets/fonts/Pixeled.ttf" id="1_hrjtf"]
+
+[resource]
+font = ExtResource("1_hrjtf")
+font_size = 55
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.984314)
