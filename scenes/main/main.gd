@@ -9,6 +9,7 @@ var score:int
 
 func _on_player_on_game_started() -> void:
 	spawner.timer.start()
+	ui.start_menu.hide()
 	ground.start_scroll()
 	
 

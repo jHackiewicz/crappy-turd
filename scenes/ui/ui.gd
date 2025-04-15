@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name UI 
 
 @onready var label: Label = %Label
+@onready var start_menu: Control = %StartMenu
 
 func _ready() -> void:
 	label.text = "0"
