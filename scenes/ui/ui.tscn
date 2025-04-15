@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6hoadr2yfyte"]
+[gd_scene load_steps=17 format=3 uid="uid://6hoadr2yfyte"]
 
 [ext_resource type="Script" uid="uid://bqya1cmq6u4pf" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
 [ext_resource type="LabelSettings" uid="uid://ig4dd1la66wy" path="res://label_55.tres" id="2_aac20"]
@@ -22,6 +22,12 @@ font = ExtResource("9_y220t")
 font_size = 40
 outline_size = 16
 outline_color = Color(0, 0, 0, 0.984314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y220t"]
+font = ExtResource("9_y220t")
+font_size = 30
+outline_size = 16
+outline_color = Color(0.470588, 0, 0, 0.984314)
 
 [sub_resource type="Animation" id="Animation_0dwhk"]
 length = 0.001
@@ -73,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 5
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -83,7 +89,6 @@ label_settings = ExtResource("2_aac20")
 
 [node name="StartMenu" type="Control" parent="MarginContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -116,10 +121,13 @@ grow_vertical = 0
 texture = ExtResource("4_0dwhk")
 
 [node name="GameOver" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(450, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 30
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/GameOver"]
 layout_mode = 2
@@ -140,8 +148,10 @@ offset_right = -24.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GameOver/background/MarginContainer"]
 layout_mode = 2
@@ -155,8 +165,10 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "MEDAL"
 label_settings = ExtResource("7_y220t")
+horizontal_alignment = 1
 
 [node name="MedalImg" type="TextureRect" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture = ExtResource("8_4kltc")
@@ -166,35 +178,57 @@ stretch_mode = 5
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/separation = -40
+theme_override_constants/separation = -30
 
 [node name="Label" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "SHIT POINTS"
+text = "POINTS"
 label_settings = ExtResource("7_y220t")
 
 [node name="CurrentScore" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4kltc")
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "BEST"
 label_settings = ExtResource("7_y220t")
+horizontal_alignment = 1
 
 [node name="HighScore" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "50"
 label_settings = SubResource("LabelSettings_hl07w")
+horizontal_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/GameOver"]
+[node name="OkButton" type="TextureButton" parent="MarginContainer/GameOver"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("7_uegxj")
+
+[node name="Label" type="Label" parent="MarginContainer/GameOver/OkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -10.0
+offset_right = -2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OK"
+label_settings = SubResource("LabelSettings_y220t")
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_pfayw")
 }
 autoplay = "menu"
+
+[connection signal="pressed" from="MarginContainer/GameOver/OkButton" to="." method="_on_ok_button_pressed"]

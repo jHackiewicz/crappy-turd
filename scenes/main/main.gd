@@ -24,6 +24,7 @@ func _on_spawner_on_obstacle_crash() -> void:
 func _on_ground_on_player_crashed() -> void:
 	spawner.stop_obstacles()
 	$ParallaxBackground.stop_scroll()
+	ui.game_over()
 
 
 func _on_spawner_on_player_scored() -> void:
