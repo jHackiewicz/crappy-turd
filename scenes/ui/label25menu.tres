@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cpy43l8jbb18"]
+
+[ext_resource type="FontFile" uid="uid://c1efh4rm8icxb" path="res://assets/fonts/Pixeled.ttf" id="1_w1ald"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_w1ald")
+font_size = 22
+font_color = Color(0.84, 0.6636, 0.78414, 1)
+outline_size = 12
+outline_color = Color(0.494118, 0.00784314, 0.729412, 1)

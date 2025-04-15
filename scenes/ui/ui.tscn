@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6hoadr2yfyte"]
+[gd_scene load_steps=16 format=3 uid="uid://6hoadr2yfyte"]
 
 [ext_resource type="Script" uid="uid://bqya1cmq6u4pf" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
 [ext_resource type="LabelSettings" uid="uid://ig4dd1la66wy" path="res://label_55.tres" id="2_aac20"]
@@ -7,15 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://jc6ll7xk1cg7" path="res://assets/texts/The End!.png" id="5_7vp6q"]
 [ext_resource type="Texture2D" uid="uid://bdc22k0gvrpu8" path="res://assets/ui/bgui.png" id="6_jcn1r"]
 [ext_resource type="Texture2D" uid="uid://o4xso768apr6" path="res://assets/ui/button.png" id="7_uegxj"]
-[ext_resource type="FontFile" uid="uid://c1efh4rm8icxb" path="res://assets/fonts/Pixeled.ttf" id="7_y220t"]
+[ext_resource type="LabelSettings" uid="uid://cpy43l8jbb18" path="res://scenes/ui/label25menu.tres" id="7_y220t"]
 [ext_resource type="Texture2D" uid="uid://bxdrgrws856gl" path="res://assets/ui/medal bronze.png" id="8_4kltc"]
+[ext_resource type="FontFile" uid="uid://c1efh4rm8icxb" path="res://assets/fonts/Pixeled.ttf" id="9_y220t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kltc"]
+font = ExtResource("9_y220t")
+font_size = 40
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.984314)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hl07w"]
-font = ExtResource("7_y220t")
-font_size = 22
-font_color = Color(0.843137, 0.482353, 0.729412, 1)
-outline_size = 12
-outline_color = Color(0, 0.00784314, 0.729412, 1)
+font = ExtResource("9_y220t")
+font_size = 40
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.984314)
 
 [sub_resource type="Animation" id="Animation_0dwhk"]
 length = 0.001
@@ -143,15 +149,44 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Medal"
-label_settings = SubResource("LabelSettings_hl07w")
+text = "MEDAL"
+label_settings = ExtResource("7_y220t")
 
 [node name="MedalImg" type="TextureRect" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture = ExtResource("8_4kltc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = -40
+
+[node name="Label" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "SHIT POINTS"
+label_settings = ExtResource("7_y220t")
+
+[node name="CurrentScore" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_4kltc")
+
+[node name="Label3" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "BEST"
+label_settings = ExtResource("7_y220t")
+
+[node name="HighScore" type="Label" parent="MarginContainer/GameOver/background/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "50"
+label_settings = SubResource("LabelSettings_hl07w")
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/GameOver"]
 layout_mode = 2
