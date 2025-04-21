@@ -6,6 +6,7 @@ extends Node2D
 @onready var ui: UI = $UI
 
 var score:int
+var high_score: int
 
 func _on_player_on_game_started() -> void:
 	spawner.timer.start()
@@ -25,6 +26,7 @@ func _on_ground_on_player_crashed() -> void:
 	spawner.stop_obstacles()
 	$ParallaxBackground.stop_scroll()
 	ui.game_over()
+	ui.calculate_score(score, high_score)
 
 
 func _on_spawner_on_player_scored() -> void:
