@@ -9,6 +9,7 @@ signal on_game_started
 @export var rotation_speed: float = 2
 
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
+@onready var background_music: AudioStreamPlayer = $BackgroundMusic
 
 
 var is_started: bool = false
@@ -22,6 +23,8 @@ func _physics_process(delta: float) -> void:
 		if not is_started:
 			is_started = true
 			on_game_started.emit()
+			background_music.play()
+			
 			
 	if not is_started:
 		return
@@ -49,3 +52,6 @@ func stop_movement() -> void:
 func stop_gravity() -> void:
 		gravity = 0
 		velocity = Vector2.ZERO
+
+func stop_music() -> void:
+	background_music.stop()

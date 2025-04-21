@@ -40,8 +40,10 @@ func _on_ground_body_entered(body: Node2D) -> void:
 	on_player_crashed.emit()
 	speed = 0
 	game_over_sound.play()
+	
 	var player_ref = body as Player
 	player_ref.stop_movement()
 	player_ref.stop_gravity()
+	player_ref.stop_music()
 	
 	
