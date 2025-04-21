@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ehhqk573a2w"]
+[gd_scene load_steps=7 format=3 uid="uid://ehhqk573a2w"]
 
 [ext_resource type="Script" uid="uid://nhs0jep0l010" path="res://scenes/player/player.gd" id="1_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bemkgwikcv6kg" path="res://assets/turds/turd green down.png" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://ca2mvsif7dnh6" path="res://assets/turds/turd green up.png" id="2_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://bex8btkrs05uf" path="res://assets/audio/jump.wav" id="4_lvxji"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yw30f"]
 animations = [{
@@ -35,3 +36,7 @@ frame_progress = 0.963624
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, -6)
 shape = SubResource("CircleShape2D_rkbax")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lvxji")
+bus = &"sfx"

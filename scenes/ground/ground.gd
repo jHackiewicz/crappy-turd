@@ -8,6 +8,7 @@ signal on_player_crashed
 @onready var ground_1: Area2D = $Ground_1
 @onready var ground_2: Area2D = $Ground_2
 @onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var game_over_sound: AudioStreamPlayer = $game_over_sound
 
 var width: int
 var is_game_started := false
@@ -38,6 +39,7 @@ func start_scroll():
 func _on_ground_body_entered(body: Node2D) -> void:
 	on_player_crashed.emit()
 	speed = 0
+	game_over_sound.play()
 	var player_ref = body as Player
 	player_ref.stop_movement()
 	player_ref.stop_gravity()

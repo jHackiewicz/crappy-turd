@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://havsd181mlnm"]
+[gd_scene load_steps=6 format=3 uid="uid://havsd181mlnm"]
 
 [ext_resource type="Texture2D" uid="uid://dgue0monk3j5k" path="res://assets/grass.png" id="1_au3k8"]
 [ext_resource type="Script" uid="uid://dkyel3l1dck1r" path="res://scenes/ground/ground.gd" id="1_rrkwn"]
+[ext_resource type="AudioStream" uid="uid://ciafh3eghh6kl" path="res://assets/audio/ground.wav" id="3_xmv3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrkwn"]
 size = Vector2(807, 44)
@@ -33,6 +34,10 @@ texture = ExtResource("1_au3k8")
 position = Vector2(0.5, 13)
 shape = SubResource("RectangleShape2D_xmv3o")
 debug_color = Color(0.873919, 0.32768, 0.299707, 0.42)
+
+[node name="game_over_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xmv3o")
+bus = &"sfx"
 
 [connection signal="body_entered" from="Ground_1" to="." method="_on_ground_body_entered"]
 [connection signal="body_entered" from="Ground_2" to="." method="_on_ground_body_entered"]

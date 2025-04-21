@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp041l1vlfp3s"]
+[gd_scene load_steps=7 format=3 uid="uid://cp041l1vlfp3s"]
 
 [ext_resource type="Script" uid="uid://blu5bvmyt4ug0" path="res://scenes/obstacle/obstacle.gd" id="1_phb0t"]
 [ext_resource type="Texture2D" uid="uid://cc6xitxr4xatr" path="res://assets/pipedown.png" id="1_utmkd"]
 [ext_resource type="Texture2D" uid="uid://cq5xtrbmp2ftb" path="res://assets/pipe.png" id="2_qlgnj"]
+[ext_resource type="AudioStream" uid="uid://bbw2h6ignwgr2" path="res://assets/audio/hit_obstacle.wav" id="4_ckc2h"]
+[ext_resource type="AudioStream" uid="uid://bkve0xh7cua48" path="res://assets/audio/collect_point.wav" id="5_8qciu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osovj"]
 size = Vector2(37.75, 112.75)
@@ -39,6 +41,15 @@ shape = SubResource("RectangleShape2D_osovj")
 position = Vector2(120, -67)
 scale = Vector2(1.4, 1.3625)
 rect = Rect2(-10, -40, 20, 80)
+
+[node name="hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ckc2h")
+bus = &"sfx"
+
+[node name="collect_point_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8qciu")
+volume_db = -12.18
+bus = &"sfx"
 
 [connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
 [connection signal="body_entered" from="Bottom" to="." method="_on_bottom_body_entered"]
